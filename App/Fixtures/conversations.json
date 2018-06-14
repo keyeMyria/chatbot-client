@@ -1,0 +1,269 @@
+{
+    "conversations":[
+    {
+        "id":"janique.costa@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"janique.costa@doppio.ch",            
+            "gender":"male",            
+            "name":{"title":"mr","first":"janique","last":"costa"},
+            "location":{"street":"5236 rua tiradentes ","city":"bragança","state":"alagoas","postcode":81417},
+            "phone":"(48) 4518-1459",
+            "cell":"(22) 3632-3660",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/97.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/97.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/97.jpg"
+            }            
+        },
+        "message":"I am out of office.",
+        "unreadmsg": 0        
+    },
+    {
+        "id":"afşar.kavaklıoğlu@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"afşar.kavaklıoğlu@doppio.ch",
+            "gender":"female",        
+            "name":{"title":"miss","first":"afşar","last":"kavaklıoğlu"},
+            "location":{"street":"8792 mevlana cd","city":"afyonkarahisar","state":"kahramanmaraş","postcode":11355},                        
+            "phone":"(278)-129-7230",
+            "cell":"(605)-650-9013",
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/78.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/78.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/78.jpg"
+            }            
+        },
+        "message":"Hi!",
+        "unreadmsg": 1 
+    },
+    {
+        "id":"eva.duncan@doppio.ch",
+        "groupchat": false, 
+        "user": {
+            "id":"eva.duncan@doppio.ch",            
+            "gender":"female",            
+            "name":{"title":"ms","first":"eva","last":"duncan"},
+            "location":{"street":"2213 park lane","city":"clonmel","state":"monaghan","postcode":30411},
+            "phone":"011-429-5904",
+            "cell":"081-475-3308",                
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/12.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/12.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/12.jpg"
+            }          
+        },
+        "message":"Hi there!",
+        "unreadmsg": 6
+    },
+    {
+        "id":"jennifer.fowler@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"jennifer.fowler@doppio.ch",            
+            "gender":"female",            
+            "name":{"title":"miss","first":"jennifer","last":"fowler"},
+            "location":{"street":"5563 victoria street","city":"hereford","state":"herefordshire","postcode":"S3 9LB"},
+            "phone":"01971 038367",
+            "cell":"0770-780-579",                
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/31.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/31.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/31.jpg"
+            }         
+        },
+        "message":"Done",
+        "unreadmsg": 0
+    },
+    {
+        "id":"william.blanc@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"william.blanc@doppio.ch",            
+            "gender":"male",            
+            "name":{"title":"mr","first":"william","last":"blanc"},
+            "location":{"street":"3934 avenue de la libération","city":"angers","state":"yvelines","postcode":13115},
+            "phone":"02-980-076",
+            "cell":"049-473-62-63",                
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/92.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/92.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/92.jpg"
+            }           
+        },
+        "message":"Last seen at 21-8-2017 5:30pm",
+        "unreadmsg": 0        
+    },
+    {
+        "id":"pinja.lampi@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"pinja.lampi@doppio.ch",            
+            "gender":"female",            
+            "name":{"title":"ms","first":"pinja","last":"lampi"},
+            "location":{"street":"5624 pirkankatu","city":"toholampi","state":"central finland","postcode":36409},
+            "phone":"02-980-076",
+            "cell":"049-473-62-63",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/94.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/94.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/94.jpg"
+            }
+        },
+        "message":"Last seen at 21-8-2017 5:30pm",
+        "unreadmsg": 0        
+    },
+    {
+        "id":"jessé.fogaça@doppio.ch",
+        "groupchat": false, 
+        "user": {
+            "id":"jessé.fogaça@doppio.ch",            
+            "gender":"male",            
+            "name":{"title":"mr","first":"jessé","last":"fogaça"},
+            "location":{"street":"6064 rua quatro","city":"almirante tamandaré","state":"ceará","postcode":86247},
+            "phone":"(00) 7921-5455",
+            "cell":"(31) 0102-3934",
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/64.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/64.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/64.jpg"
+            }
+        },
+        "message":"Hi there!",
+        "unreadmsg": 2                
+    },
+    {
+        "id":"rachel.blanc@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"rachel.blanc@doppio.ch",            
+            "gender":"female",            
+            "name":{"title":"ms","first":"rachel","last":"blanc"},
+            "location":{"street":"9007 avenue du château","city":"nice","state":"meurthe-et-moselle","postcode":72083},
+            "phone":"04-94-64-43-23",
+            "cell":"06-74-15-15-73",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/4.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/4.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/4.jpg"
+            }
+        },
+        "message":"John went to Rome!",
+        "unreadmsg": 5                        
+    },
+    {
+        "id":"lilian.bourgeois@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"lilian.bourgeois@doppio.ch",            
+            "gender":"male",
+            "name":{"title":"mr","first":"lilian","last":"bourgeois"},
+            "location":{"street":"3634 montée du chemin-neuf","city":"angers","state":"côtes-d'armor","postcode":67857},
+            "phone":"04-85-65-08-26",
+            "cell":"06-61-41-74-40",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/15.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/15.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/15.jpg"
+            }
+        },
+        "message":"FR",
+        "unreadmsg": 0                        
+    },
+    {
+        "id":"اميرعلي.سلطانینژاد@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"اميرعلي.سلطانینژاد@doppio.ch",            
+            "gender":"male",        
+            "name":{"title":"mr","first":"اميرعلي","last":"سلطانی نژاد"},
+            "location":{"street":"2268 پارک طالقانی","city":"کرمانشاه","state":"کردستان","postcode":52188},
+            "phone":"085-88344075",
+            "cell":"0975-269-9865",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/63.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/63.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/63.jpg"
+            }
+        },
+        "message":"IR",
+        "unreadmsg": 10                        
+    },
+    {
+        "id":"julia.ruona@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"julia.ruona@doppio.ch",            
+            "gender":"female",            
+            "name":{"title":"miss","first":"julia","last":"ruona"},
+            "location":{"street":"4237 itsenäisyydenkatu","city":"sotkamo","state":"north karelia","postcode":21240},
+            "phone":"05-226-579",
+            "cell":"040-404-55-01",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/76.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/76.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/76.jpg"
+            }
+        },
+        "message":"FI",
+        "unreadmsg": 0                        
+    },
+    {
+        "id":"julian.durand@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"julian.durand@doppio.ch",            
+            "gender":"male",            
+            "name":{"title":"monsieur","first":"julian","last":"durand"},
+            "location":{"street":"2756 rue des chartreux","city":"lausanne","state":"appenzell innerrhoden","postcode":7017},
+            "phone":"(125)-984-9978",
+            "cell":"(190)-352-3027",           
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/56.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/56.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/56.jpg"
+            }
+        },
+        "message":"CH",
+        "unreadmsg": 1                               
+    },
+    {
+        "id":"gordon.hubregtse@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"gordon.hubregtse@doppio.ch",            
+            "gender":"male",            
+            "name":{"title":"mr","first":"gordon","last":"hubregtse"},
+            "location":{"street":"5262 zonstraat","city":"wijchen","state":"friesland","postcode":68205},
+            "phone":"(223)-547-1082",
+            "cell":"(981)-829-7272",          
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/men/96.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/men/96.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/men/96.jpg"
+            }
+        },
+        "message":"NL",
+        "unreadmsg": 0                                
+    },
+    {
+        "id":"séléna.henry@doppio.ch",
+        "groupchat": false,
+        "user": {
+            "id":"séléna.henry@doppio.ch",            
+            "gender":"female",           
+            "name":{"title":"madame","first":"séléna","last":"henry"},
+            "location":{"street":"9468 rue victor-hugo","city":"st-sulpice vd","state":"valais","postcode":4774},
+            "phone":"(421)-331-1345",
+            "cell":"(928)-084-6168",            
+            "picture":{
+                "large":"https://randomuser.me/api/portraits/women/42.jpg",
+                "medium":"https://randomuser.me/api/portraits/med/women/42.jpg",
+                "thumbnail":"https://randomuser.me/api/portraits/thumb/women/42.jpg"
+            }
+        },
+        "message":"CH",
+        "unreadmsg": 0                                
+    }]
+}

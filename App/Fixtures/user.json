@@ -1,0 +1,9 @@
+{
+  "id": "react.native@doppio.ch",
+  "name":{"title":"mr","first":"React","last":"Native"},
+  "picture":{
+    "large":"https://randomuser.me/api/portraits/men/28.jpg",
+    "medium":"https://randomuser.me/api/portraits/med/men/28.jpg",
+    "thumbnail":"https://randomuser.me/api/portraits/thumb/men/28.jpg"
+  }
+}
