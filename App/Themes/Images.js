@@ -1,5 +1,6 @@
 // leave off @2x/@3x
 const images = {
+  ngtiLogo: require('../Images/NGTI.png'),
   doppioLogo: require('../Images/doppio_logo.png'),
   doppiolaunch: require('../Images/doppio_launch_icon.png'),    
   logo: require('../Images/ir.png'),

@@ -87,7 +87,7 @@ class ChatScreen extends Component {
 
   componentWillMount() {
     this._isMounted = true;
-    this._loadMessage();
+    //this._loadMessage();
   }
 
   componentDidMount() {
@@ -127,10 +127,11 @@ class ChatScreen extends Component {
         id: msg.messageId,
         text: msg.message,
         createdAt: new Date(msg.createdAt),
-        isUser: msg.isUser,
+        isUser: this._isUser(msg._sender),
         received: true,
         sent: true,
-        user: msg.isUser? this.state.user : this.state.contact
+        //user: msg.isUser? this.state.user : this.state.contact
+        user: this._convertSender(msg._sender)
       }));
 
       console.log("*** Messages=", newMessages);
@@ -208,6 +209,21 @@ class ChatScreen extends Component {
         user: a.isUser? contact:user
       };
     });
+  }
+
+  _isUser = sender => {
+    if (sender && sender.userId === this.state.user.id) {
+      return true;
+    }
+    return false;
+  }
+
+  _convertSender = sender => {
+    return {
+      id: sender.userId,
+      name: sender.nickname,
+      avatar: sender.profileUrl
+    }
   }
 
   onLoadEarlier() {

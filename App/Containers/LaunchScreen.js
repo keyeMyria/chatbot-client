@@ -27,13 +27,13 @@ class LaunchScreen extends Component {
       console.log('-User Login->, user=', user);
       this.setState({
         user: {
-          is: user.userId,
+          id: user.userId,
           name: user.nickname,
           avatar: user.profileUrl
         }
       });
     }
-    if (channel) {
+    if (channel.channel) {
       console.log('-Channel entered->, channel=', channel);
       const sbChannnel = channel.channel;
       this.props.navigation.navigate('ChatScreen', {
@@ -55,13 +55,12 @@ class LaunchScreen extends Component {
         this.setState({ isLoading: true }, () => {
           const user = JSON.parse(result);
           console.log('-App got saved user', user);
-
           sbConnect(user.userId, user.nickname)
             .then((user) => {
               console.log('-App-> Logged in exsting user, user=', user);
               this.setState({
                 user: {
-                  is: user.userId,
+                  id: user.userId,
                   name: user.nickname,
                   avatar: user.profileUrl
                 }
@@ -110,7 +109,7 @@ class LaunchScreen extends Component {
       else {
         console.log("-XXX->start automatically login");
         //this.redirectTo("Login");
-        this.props.doLogin({userId: '1', nickname: 'ivan1'});
+        this.props.doLogin({userId: 'Ngtren', nickname: 'LinQX'});
       }
     });
   }
@@ -133,7 +132,7 @@ class LaunchScreen extends Component {
       <View style={styles.mainContainer}>
         <ScrollView style={styles.container}>
           <View style={styles.centered}>
-            <Image source={Images.doppioLogo} style={styles.logo} />
+            <Image source={Images.ngtiLogo} style={styles.logo} />
           </View>
 
           <View style={styles.section} >
