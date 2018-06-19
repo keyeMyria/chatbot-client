@@ -19,6 +19,8 @@ class RootContainer extends Component {
     this.state = {
       user: me || {}
     }
+
+    console.log("-XXX-> RootContainer, me=", me);
   }
 
   componentWillMount () {

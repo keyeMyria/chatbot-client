@@ -8,50 +8,29 @@ import UserProfileScreen from '../Containers/UserProfileScreen';
 
 import RegisterScreen from '../Containers/RegisterScreen';
 import LaunchScreen from '../Containers/LaunchScreen';
+import ChatScreen from '../Containers/ChatScreen';
+import LoginScreen from '../Containers/LoginScreen';
 
 import styles from './Styles/NavigationStyles';
 
-import MainTabScreenNav from './MainTabScreenNav';
-
-const ConversationStack = StackNavigator({
-  ConversationScreen: { 
-    screen: ConversationScreen,
-  },
-  UserProfileScreen: {
-    screen: UserProfileScreen,
-  },
-}, {
-  // Default config for all screens
-  mode : "modal",
-  //headerMode: 'none',
-  headerMode: 'screen', //ios header
-  initialRouteName: 'ConversationScreen',
-  navigationOptions: {
-    headerStyle: styles.header
-  }
-});
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
-//const PrimaryNav = createStackNavigator({
-  ConversationScreen: { 
-    screen: ConversationScreen,
+  ChatScreen: { 
+    screen: ChatScreen,
   },
   UserProfileScreen: {
     screen: UserProfileScreen,
   },
   RegisterScreen: { screen: RegisterScreen },
   LaunchScreen: { screen: LaunchScreen },
-  MainTabScreenNav: {screen: MainTabScreenNav },
+  Login: { screen: LoginScreen },
 }, {
-  // Default config for all screens
-  //mode : "modal",
-  //headerMode: 'none',
   headerMode: 'screen', //ios header
-  initialRouteName: 'MainTabScreenNav',
+  initialRouteName: 'LaunchScreen',
   navigationOptions: {
     headerStyle: styles.header
   }
 })
 
-export default PrimaryNav
+export default PrimaryNav;

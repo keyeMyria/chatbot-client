@@ -1,52 +1,36 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import { createLogger } from 'redux-logger'
-import { autoRehydrate } from 'redux-persist'
-import Config from '../Config/DebugConfig'
-import createSagaMiddleware from 'redux-saga'
-import RehydrationServices from '../Services/RehydrationServices'
-import ReduxPersist from '../Config/ReduxPersist'
-import ScreenTracking from './ScreenTrackingMiddleware'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+//import createSagaMiddleware from 'redux-saga';
 
 // creates the store
 export default (rootReducer, rootSaga) => {
   /* ------------- Redux Configuration ------------- */
-
   const middleware = []
   const enhancers = []
-
-  /* ------------- Analytics Middleware ------------- */
-  middleware.push(ScreenTracking)
 
   /* ------------- Redux logger ---------------- */
   const loggerMiddleware = createLogger();
   middleware.push(loggerMiddleware)
 
   /* ------------- Saga Middleware ------------- */
-  const sagaMonitor = Config.useReactotron ? console.tron.createSagaMonitor() : null
-  const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
-  middleware.push(sagaMiddleware)
+  //const sagaMonitor = null;
+  //const sagaMiddleware = createSagaMiddleware({ sagaMonitor })
+  //middleware.push(sagaMiddleware)
+
+  /* ------------- Thunk Middleware ------------- */
+  middleware.push(thunk);
 
   /* ------------- Assemble Middleware ------------- */
   enhancers.push(applyMiddleware(...middleware))
 
-  /* ------------- AutoRehydrate Enhancer ------------- */
-
-  // add the autoRehydrate enhancer
-  if (ReduxPersist.active) {
-    enhancers.push(autoRehydrate())
-  }
-
-  // if Reactotron is enabled (default for __DEV__), we'll create the store through Reactotron
-  const createAppropriateStore = Config.useReactotron ? console.tron.createStore : createStore
-  const store = createAppropriateStore(rootReducer, compose(...enhancers))
-
-  // configure persistStore and check reducer version number
-  if (ReduxPersist.active) {
-    RehydrationServices.updateReducers(store)
-  }
+  const store = createStore(
+    rootReducer,
+    {},
+    compose(...enhancers));
 
   // kick off root saga
-  sagaMiddleware.run(rootSaga)
+  //sagaMiddleware.run(rootSaga)
 
   return store
 }
