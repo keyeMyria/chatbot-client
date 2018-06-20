@@ -69,7 +69,7 @@ class ChatScreen extends Component {
       messages: [],
       previousMessageListQuery: null,
       isLoading: false,
-      loadEarlier: true,
+      loadEarlier: false,
       typingText: null,
       isLoadingEarlier: false,
     };
@@ -333,6 +333,7 @@ class ChatScreen extends Component {
         />
       );
     }
+    /*
     const options = {
       'Action 1': (props) => {
         alert('option 1');
@@ -348,6 +349,8 @@ class ChatScreen extends Component {
         options={options}
       />
     );
+    */
+   return null;
   }
 
   renderBubble(props) {
