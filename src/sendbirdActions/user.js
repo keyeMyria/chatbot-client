@@ -3,7 +3,6 @@ import {
     Platform,
     AsyncStorage
 } from 'react-native';
-//import FCM, {NotificationActionType} from "react-native-fcm";
 
 const APP_ID = 'C0E1BEB2-AB8D-46A5-AE51-7F3793621E89'; // NGTI ChatBot
 
@@ -78,27 +77,6 @@ export const sbConnect = (userId, nickname) => {
             if (error) {
                 reject('SendBird Login Failed.');
             } else {
-                /*
-                if(Platform.OS === 'ios') {
-                    FCM.getAPNSToken().then(token => {
-                        if(token) {
-                            sb.registerAPNSPushTokenForCurrentUser(token, function(result, error){
-                                console.log("registerAPNSPushTokenForCurrentUser");
-                                console.log(result);
-                            });
-                        }
-                    });
-                } else {
-                    FCM.getFCMToken().then(token => {
-                        if(token) {
-                            sb.registerGCMPushTokenForCurrentUser(token, function(result, error){
-                                console.log("registerAPNSPushTokenForCurrentUser");
-                                console.log(result);
-                            });
-                        }
-                    });
-                }
-                */
                 resolve(sbUpdateProfile(nickname));
             }
         })

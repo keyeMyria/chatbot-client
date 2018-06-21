@@ -1,6 +1,5 @@
 import { sbGetOpenChannel } from './openChannel';
 import { sbGetGroupChannel } from './groupChannel';
-import SendBird from 'sendbird';
 
 export const sbCreatePreviousMessageListQuery = (channelUrl, isOpenChannel) => {
     return new Promise((resolve, reject) => {
