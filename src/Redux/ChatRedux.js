@@ -361,8 +361,8 @@ const handleSendMessageFail = (state, action) => {
 } 
 
 const handleMessageReceived = (state, action) => {
-    //console.log('-XXX->handleMessageReceived, msg=', action.payload.message, ', msgData=', action.payload.data);
-    return { ...state, list: [...[[action.payload]], ...state.list]}
+    //console.log('-XXX->handleMessageReceived, payload=', action.payload);
+    return { ...state, list: [...[action.payload], ...state.list]};
 }
 
 const reducer = (state = INITAL_STATE, action) => {
