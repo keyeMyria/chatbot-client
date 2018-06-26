@@ -361,28 +361,8 @@ const handleSendMessageFail = (state, action) => {
 } 
 
 const handleMessageReceived = (state, action) => {
-    const msgReceived = action.payload.message;
-    const msgData = action.payload.data;
-    console.log('-XXX->handleMessageReceived, msg=', msgReceived, ', msg_data=', msgData);
-    let msgJson = null;
-    if (msgData) {
-      try {
-        msgJson = JSON.parse(msgData);
-      } catch (e) {
-        console.log('-XXX->', e);
-      }
-    }
-    let newPayload = action.payload;
-    if (msgJson) {
-      console.log('-ParsedJson->', msgJson);
-      newPayload = {
-        ...action.payload,
-        data: msgJson
-      }
-      console.log('-XXX->Modified payload, ', newPayload);
-    }
-    console.log(msgReceived);
-    return { ...state, list: [...[newPayload], ...state.list]}
+    //console.log('-XXX->handleMessageReceived, msg=', action.payload.message, ', msgData=', action.payload.data);
+    return { ...state, list: [...[[action.payload]], ...state.list]}
 }
 
 const reducer = (state = INITAL_STATE, action) => {
