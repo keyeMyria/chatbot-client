@@ -342,45 +342,78 @@ const INITAL_STATE = {
   typing: ''
 }
 
+// Handlers
+const handleSendMessageSuccess = (state, action) => {
+  const newMessage = action.message;
+  const sendSuccessList = state.list.map((message) => {
+    if (message.reqId && newMessage.reqId && message.reqId.toString() === newMessage.reqId.toString()) {
+      return newMessage;
+    } else {
+      return message;
+    }
+  })
+  return { ...state, list: sendSuccessList };
+}
+
+const handleSendMessageFail = (state, action) => {
+  const newChatList = state.list.slice(1);
+  return { ...state, list: newChatList };
+} 
+
+const handleMessageReceived = (state, action) => {
+    const msgReceived = action.payload.message;
+    const msgData = action.payload.data;
+    console.log('-XXX->handleMessageReceived, msg=', msgReceived, ', msg_data=', msgData);
+    let msgJson = null;
+    if (msgData) {
+      try {
+        msgJson = JSON.parse(msgData);
+      } catch (e) {
+        console.log('-XXX->', e);
+      }
+    }
+    let newPayload = action.payload;
+    if (msgJson) {
+      console.log('-ParsedJson->', msgJson);
+      newPayload = {
+        ...action.payload,
+        data: msgJson
+      }
+      console.log('-XXX->Modified payload, ', newPayload);
+    }
+    console.log(msgReceived);
+    return { ...state, list: [...[newPayload], ...state.list]}
+}
+
 const reducer = (state = INITAL_STATE, action) => {
   switch(action.type) {
-      case INIT_CHAT_SCREEN: 
-          return { ...state, ...INITAL_STATE };
-      case CREATE_CHAT_HANDLER_SUCCESS:
-          return { ...state }
-      case CREATE_CHAT_HANDLER_FAIL:
-          return { ...state }
-      case CHANNEL_TITLE_CHANGED:
-          return { ...state, title: action.title, memberCount: action.memberCount }
-      case CHANNEL_TITLE_CHANGED_FAIL:
-          return { ...state }
-      case MESSAGE_LIST_SUCCESS:
-          return { ...state, list: [...state.list, ...action.list] };
-      case MESSAGE_LIST_FAIL:
-          return { ...state };
-      case SEND_MESSAGE_TEMPORARY:
-          return { ...state, list: [...[action.message], ...state.list]}
-      case SEND_MESSAGE_SUCCESS:
-          const newMessage = action.message;
-          const sendSuccessList = state.list.map((message) => {
-              if (message.reqId && newMessage.reqId && message.reqId.toString() === newMessage.reqId.toString()) {
-                  return newMessage;
-              } else {
-                  return message;
-              }
-          })
-          return { ...state, list: sendSuccessList }
-      case SEND_MESSAGE_FAIL: 
-          const newChatList = state.list.slice(1);
-          return { ...state, list: newChatList }
-      case CHANNEL_EXIT_SUCCESS:
-          return { ...state, exit: true };
-      case CHANNEL_EXIT_FAIL:
-          return { ...state, exit: false };
-      
-      case MESSAGE_RECEIVED:
-          return { ...state, list: [...[action.payload], ...state.list]}
-      case MESSAGE_UPDATED:
+    case INIT_CHAT_SCREEN: 
+      return { ...state, ...INITAL_STATE };
+    case CREATE_CHAT_HANDLER_SUCCESS:
+      return { ...state }
+    case CREATE_CHAT_HANDLER_FAIL:
+      return { ...state }
+    case CHANNEL_TITLE_CHANGED:
+      return { ...state, title: action.title, memberCount: action.memberCount }
+    case CHANNEL_TITLE_CHANGED_FAIL:
+      return { ...state }
+    case MESSAGE_LIST_SUCCESS:
+      return { ...state, list: [...state.list, ...action.list] };
+    case MESSAGE_LIST_FAIL:
+      return { ...state };
+    case SEND_MESSAGE_TEMPORARY:
+      return { ...state, list: [...[action.message], ...state.list]}
+    case SEND_MESSAGE_SUCCESS:
+      return handleSendMessageSuccess(state, action);
+    case SEND_MESSAGE_FAIL:
+      return handleSendMessageFail(state, action);
+    case CHANNEL_EXIT_SUCCESS:
+      return { ...state, exit: true };
+    case CHANNEL_EXIT_FAIL:
+      return { ...state, exit: false };
+    case MESSAGE_RECEIVED:
+      return handleMessageReceived(state, action);
+    case MESSAGE_UPDATED:
           const updatedMessage = action.payload;
           const updatedList = state.list.map((message) => {
               if (message.messageId === updatedMessage.messageId) {
