@@ -1,0 +1,80 @@
+{
+  "fulfillmenteMessages": [
+    {
+      "platform": "PLATFORM_UNSPECIFIED",
+      "text": {
+        "text": [
+          "Here is an overview of your data usage in Europe until now."
+        ]
+      },
+      "message": "text"
+    },
+    {
+      "platform": "PLATFORM_UNSPECIFIED", 
+      "payload": {
+        "fields": { 
+          "action": {
+            "stringValue": "show-user-data-consumption-status",
+            "kind": "stringValue"
+          }
+        }
+      },
+      "message": "payload"
+    },
+    {
+      "platform": "PLATFORM_UNSPECIFIED",
+      "text":{
+        "text": [
+          "You require an additional data package to continue using internet abroad when you have reached the 3GB limit."
+        ]
+      },
+      "message": "text"
+    }, 
+    {
+      "platform": "PLATFORM_UNSPECIFIED",
+      "text": {
+        "text": [
+          "Would you like to see the available top-up data packages?"
+        ]
+      },
+      "message": "text"
+    },
+    {
+      "platform": "PLATFORM_UNSPECIFIED",
+      "payload": {
+        "fields": {
+          "buttons": {
+            "listValue": {
+              "values": [
+                {
+                  "structValue": {
+                    "fields": {
+                      "text": {
+                        "stringValue": "Yes",
+                        "kind": "stringValue"
+                      }
+                    }
+                  },
+                  "kind": "structValue"
+                },
+                {
+                  "structValue": {
+                    "fields": {
+                      "text": {
+                        "stringValue": "Remind me later",
+                        "kind": "stringValue"
+                      }
+                    }
+                  },
+                  "kind": "structValue"
+                }
+              ]
+            },
+            "kind": "listValue"
+          }
+        }
+      },
+      "message": "payload"
+    }
+  ]
+}

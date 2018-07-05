@@ -1,12 +1,25 @@
 import React, { Component } from 'react'
-import { View, StatusBar } from 'react-native'
+import {
+  StyleSheet,
+  View,
+  StatusBar
+} from 'react-native'
 import ReduxNavigation from '../Navigation/ReduxNavigation'
 import { connect } from 'react-redux'
 //import StartupActions from '../Redux/StartupRedux'
 import {startup} from '../Redux/StartupRedux'
 
 // Styles
-import styles from './Styles/RootContainerStyles'
+//import styles from './Styles/RootContainerStyles';
+
+// Styles
+import { ApplicationStyles } from '../Themes/index';
+const styles = StyleSheet.create({
+  applicationView: {
+      ...ApplicationStyles.screen.mainContainer,
+      justifyContent: 'center'
+  }
+});
 
 class RootContainer extends Component {
 

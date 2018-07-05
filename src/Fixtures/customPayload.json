@@ -1,0 +1,80 @@
+{
+  "fields": {
+    "bundle": {
+      "listValue": {
+        "values": [
+          {
+            "structValue": {
+              "fields": {
+                "id": { 
+                  "numberValue":1,
+                  "kind": "numberValue"
+                },
+                "limit": {
+                  "numberValue": 200,
+                  "kind": "numberValue"
+                },
+                "price": {
+                  "numberValue": 9.9,
+                  "kind": "numberValue"
+                },
+                "name": {
+                  "stringValue": "Data Travel 200MB",
+                  "kind": "stringValue"
+                }
+              }
+            },
+            "kind": "structValue"
+          },
+          {
+            "structValue": {
+              "fields": {
+                "name": {
+                  "stringValue": "Data Travel 500MB",
+                  "kind": "stringValue"
+                },
+                "id": {
+                  "numberValue":2,
+                  "kind": "numberValue"
+                },
+                "limit": {
+                  "numberValue": 500,
+                  "kind": "numberValue"
+                },
+                "price": {
+                  "numberValue": 15.9,
+                  "kind": "numberValue"
+                }
+              }
+            },
+            "kind": "structValue"
+          },
+          {
+            "structValue": {
+              "fields": {
+                "limit": {
+                  "numberValue": 1000,
+                  "kind": "numberValue"
+                },
+                "price": {
+                  "numberValue": 29.9,
+                  "kind": "numberValue"
+                },
+                "name": {
+                  "stringValue": "Data Travel 1GB",
+                  "kind": "stringValue"
+                },
+                "id": {
+                  "numberValue": 3,
+                  "kind": "numberValue"
+                }
+              }
+            },
+            "kind": "structValue"
+          }
+        ]
+      },
+      "kind": "listValue"
+    }
+  }
+}

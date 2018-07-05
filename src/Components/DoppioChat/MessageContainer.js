@@ -16,11 +16,6 @@ export default class MessageContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.renderRow = this.renderRow.bind(this);
-    this.renderFooter = this.renderFooter.bind(this);
-    this.renderLoadEarlier = this.renderLoadEarlier.bind(this);
-    this.renderScrollComponent = this.renderScrollComponent.bind(this);
-
     const dataSource = new ListView.DataSource({
       rowHasChanged: (r1, r2) => {
         return r1.hash !== r2.hash;
@@ -73,7 +68,7 @@ export default class MessageContainer extends React.Component {
     });
   }
 
-  renderFooter() {
+  renderFooter = () => {
     if (this.props.renderFooter) {
       const footerProps = {
         ...this.props,
@@ -83,7 +78,7 @@ export default class MessageContainer extends React.Component {
     return null;
   }
 
-  renderLoadEarlier() {
+  renderLoadEarlier = () => {
     if (this.props.loadEarlier === true) {
       const loadEarlierProps = {
         ...this.props,
@@ -102,7 +97,8 @@ export default class MessageContainer extends React.Component {
     this._invertibleScrollViewRef.scrollTo(options);
   }
 
-  renderRow(message, sectionId, rowId) {
+  renderRow = (message, sectionId, rowId) => {
+    //console.log('-renderMessage, message=', message);
     if (!message.id && message.id !== 0) {
       console.warn('DoppioChat: `id` is missing for message', JSON.stringify(message));
     }
@@ -127,7 +123,7 @@ export default class MessageContainer extends React.Component {
     return <Message {...messageProps}/>;
   }
 
-  renderScrollComponent(props) {
+  renderScrollComponent = (props) => {
     const invertibleScrollViewProps = this.props.invertibleScrollViewProps;
     return (
       <InvertibleScrollView

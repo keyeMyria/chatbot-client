@@ -45,14 +45,6 @@ class ChatScreen extends Component {
     console.log("-Chat->, navParams=", this.props.navigation.state.params);
     const { user, channelUrl, title, isOpenChannel, coverUrl, isFromPayload } = this.props.navigation.state.params;
 
-    const me = require('../Fixtures/user.json');
-
-    const self = {
-      id: me.id,
-      name: `${me.name.first} ${me.name.last}`,
-      avatar: me.picture.thumbnail || {},
-    };
-    
     const contact = {
       id: channelUrl,
       name: `${title}`,
@@ -75,13 +67,6 @@ class ChatScreen extends Component {
     };
 
     this._isMounted = false;
-    this.onSend = this.onSend.bind(this);
-    this.onReceive = this.onReceive.bind(this);
-    this.renderCustomActions = this.renderCustomActions.bind(this);
-    this.renderBubble = this.renderBubble.bind(this);
-    this.renderFooter = this.renderFooter.bind(this);
-    this.onLoadEarlier = this.onLoadEarlier.bind(this);
-
     this._isAlright = null;
   }
 
@@ -120,12 +105,13 @@ class ChatScreen extends Component {
     //console.log('-Chat:componentWillReceiveProps->, oldChat=', oldChat);
 
     if (chat && chat.list && chat.list.length > 0 && chat.list.length !== oldChat.list.length) {
-      //console.log('-Receive chat list->', chat.list);
+      console.log('-Receive chat list->', chat.list);
       const list = sbAdjustMessageList(chat.list);
       console.log('-coverted chat list->',list);
       const newMessages = list.map(msg => ({
         id: msg.messageId,
         text: msg.message,
+        data: this._convertMessageData(msg.data),
         createdAt: new Date(msg.createdAt),
         isUser: this._isUser(msg._sender),
         received: true,
@@ -185,7 +171,7 @@ class ChatScreen extends Component {
     });
   };
 
-  _loadMessage() {
+  _loadMessage = () => {
     let user = this.state.user;
     let contact = this.state.contact;
 
@@ -200,7 +186,7 @@ class ChatScreen extends Component {
     });
   }
 
-  _convertMessage(messages) {
+  _convertMessage = messages => {
     let user = this.state.user;
     let contact = this.state.contact;
 
@@ -209,6 +195,18 @@ class ChatScreen extends Component {
         user: a.isUser? contact:user
       };
     });
+  }
+
+  _convertMessageData = msgData => {
+    let data = null;
+    if (msgData && msgData.length > 4) {
+      try {
+        data = JSON.parse(msgData);
+      } catch (e) {
+        //XXX
+      }
+    }
+    return data;
   }
 
   _isUser = sender => {
@@ -226,7 +224,7 @@ class ChatScreen extends Component {
     }
   }
 
-  onLoadEarlier() {
+  onLoadEarlier = () => {
     console.log("===> Chat root container cb: onLoadEarlier");
     
     this.setState((previousState) => {
@@ -250,7 +248,7 @@ class ChatScreen extends Component {
     }, 1000); // simulating network
   }
 
-  onSend(messages = []) {
+  onSend = (messages = []) => {
     console.log("===> Chat root container cb: onSend, msg="+JSON.stringify(messages));
     /*
     this.setState((previousState) => {
@@ -266,11 +264,11 @@ class ChatScreen extends Component {
     this.props.sendMessage(this.state.channelUrl, this.state.isOpenChannel, textMessage);
   }
 
-  onPressAvatar(user) {
+  onPressAvatar = user => {
     console.log("===> Chat root container cb: onPressAvatar, user="+JSON.stringify(user));
   }
 
-  answerDemo(messages) {
+  answerDemo = messages => {
     if (messages.length > 0) {
       if ((messages[0].image || messages[0].location) || !this._isAlright) {
         this.setState((previousState) => {
@@ -311,7 +309,7 @@ class ChatScreen extends Component {
     }, 1000);
   }
 
-  onReceive(text) {
+  onReceive = text => {
     console.log('OnReceive!')
     this.setState((previousState) => {
       return {
@@ -325,7 +323,7 @@ class ChatScreen extends Component {
     });
   }
 
-  renderCustomActions(props) {
+  renderCustomActions = props => {
     if (Platform.OS === 'ios') {
       return (
         <CustomActions
@@ -353,7 +351,7 @@ class ChatScreen extends Component {
    return null;
   }
 
-  renderBubble(props) {
+  renderBubble = props => {
     return (
       <Bubble
         {...props}
@@ -364,7 +362,7 @@ class ChatScreen extends Component {
     );
   }
 
-  renderCustomView(props) {
+  renderCustomView = props => {
     return (
       <CustomView
         {...props}
@@ -372,7 +370,7 @@ class ChatScreen extends Component {
     );
   }
 
-  renderFooter(props) {
+  renderFooter = props => {
     console.log("**** renderFooter ***, typing: " + this.state.typingText);
     if (this.state.typingText) {
       return (

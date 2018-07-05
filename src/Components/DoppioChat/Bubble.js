@@ -11,7 +11,11 @@ import {
 
 import MessageText from './MessageText';
 import MessageImage from './MessageImage';
+import MessageButtons from './MessageButtons';
+import MessageCard from './MessageCard';
 import Time from './Time';
+import Carousel from '../Carousel';
+import ViewPager from '../ViewPager';
 
 import { isSameUser, isSameDay, warnDeprecated } from './utils';
 
@@ -19,6 +23,7 @@ export default class Bubble extends React.Component {
   constructor(props) {
     super(props);
     this.onLongPress = this.onLongPress.bind(this);
+    //console.log('-XXX->MessageBubble, props=', this.props);
   }
 
   handleBubbleToNext() {
@@ -35,8 +40,92 @@ export default class Bubble extends React.Component {
     return null;
   }
 
+  renderRichText = data => {
+    console.log('-XXX->renderRichText component, data=', data);
+    if (data && data.buttons) {
+      const {containerStyle, ...messageButtonsProps} = this.props;
+
+      if (this.props.renderMessageButtons) {
+         return this.props.renderMessageButtons(messageButtonsProps);
+      }
+      return <MessageButtons buttons={data.buttons} {...messageButtonsProps} />;
+    } /*else if (data && data.card) {
+      const {containerStyle, ...messageCardProps} = this.props;
+      return <MessageCard card={data.card} {...messageCardProps} />;
+    } */else if (data && data.carousel) {
+      //save the data locally
+      //this.setState({
+      //  data
+      //});
+      
+      const firstItem = data.carousel[0];
+      const {containerStyle, ...messageCardProps} = this.props;
+      return <MessageCard card={firstItem.card} {...messageCardProps} />;
+      /*
+      return (
+        <View>
+          {
+            data.carousel.map((card, i) => {
+              return (
+                <MessageCard card={card} {...messageCardProps} key={i} />);
+            })
+          }
+        </View>
+      );
+
+      /*
+      const {containerStyle, ...messageCardProps} = this.props;
+      return (
+        <ViewPager
+          count={data.carousel.length}
+          selectedIndex={0}
+          {...this.props}
+          bounces={true}
+        >
+          {
+          data.carousel.map((card, i) => {
+            return (
+              <MessageCard card={card} {...messageCardProps} key={i} />);
+          })
+        }
+        </ViewPager>
+      );
+    
+      /*
+      return (
+        <Carousel
+          count={count}
+          selectedIndex={0}
+          onSelectedIndexChange={this.handleIndexChange}
+          renderCard={this.renderCard}
+        />
+      );
+      */
+    }
+    return null;
+  }
+
+  handleIndexChange = (index) => {
+    console.log('selected index, ', index);
+  }
+
+  renderCard = (index) => {
+    const data = this.state.data;
+    if (data && data.carousel) {
+      const theCard = data.carousel[index];
+      if (theCard) {
+        const {containerStyle, ...messageCardProps} = this.props;
+        return <MessageCard card={theCard} {...messageCardProps} />;
+      }
+    }
+    return null;
+  }
+
   renderMessageText() {
-    if (this.props.currentMessage.text) {
+    // check rich-text extensions
+    if (this.props.currentMessage.data) {
+      return this.renderRichText(this.props.currentMessage.data);
+    } else if (this.props.currentMessage.text) {
       const {containerStyle, wrapperStyle, ...messageTextProps} = this.props;
       if (this.props.renderMessageText) {
         return this.props.renderMessageText(messageTextProps);
